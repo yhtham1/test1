@@ -10,18 +10,19 @@ def printb(b):
 
 def main():
 	b = ''
-	with open('data.txt', 'rt', encoding='utf8') as f:
+	with open('00_title.txt', 'rt', encoding='utf8') as f:
 		b = f.readlines()
 	b1 = []
 	for it in b:
 		it = it.strip()
 		# print(it)
-		m = re.split(r'[_]', it)
+		m = re.split(r'[ _]', it)
 		for it2 in m:
-			if re.match(r'\d{6}', it2):
+			if re.match(r'\d{2}/\d{2}/\d{2}', it2):
 				pass
 			else:
-				b1.append(it2)
+				if 1<len(it2):
+					b1.append(it2)
 			pass
 	b1 = sorted(b1)
 	for it in b1:
